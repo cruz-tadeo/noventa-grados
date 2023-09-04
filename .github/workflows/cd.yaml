@@ -1,22 +1,31 @@
-name: Deploy to VPS
+name: Node.js CD
 
+# Controls when the action will run. 
 on:
+  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches:
-      - main
+    branches: [ main ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Set who I am
-        run: |
-          git config --global user.email "jimeneztadeocruz@gmail.com"
-          git config --global user.name "cruz-tadeo"
-          git config --global url."git@github.com:".insteadOf "https://github.com/"
-          git pull 
-         
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        port: 22
+        script: |
+          cd noventa-grados
+          git pull origin main
+          git status
+          npm run build
+          pm2 restart noventa-app
