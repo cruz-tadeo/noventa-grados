@@ -12,9 +12,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Set up SSH agent
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
 
       - name: Deploy using SSH
-        uses: appleboy/ssh-action@v0.1.10
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
