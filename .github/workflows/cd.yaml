@@ -23,4 +23,4 @@ jobs:
           port: 22
           script: |
             cd noventa-grados
-            ls -la
+            git status
