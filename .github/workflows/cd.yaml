@@ -25,8 +25,6 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         port: 22
         script: |
-          whoami
-          ls -al
           cd noventa-grados
           git pull origin main
           git status
