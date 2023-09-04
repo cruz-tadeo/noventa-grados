@@ -26,3 +26,8 @@ jobs:
         script: |
           whoami
           ls -al
+          cd noventa-grados
+          git pull origin master
+          git status
+          npm run build
+          pm2 restart noventa-app
