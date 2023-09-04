@@ -27,5 +27,3 @@ jobs:
           cd noventa-grados
           git pull origin main
           git status
-          npm run build
-          pm2 restart noventa-app
