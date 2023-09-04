@@ -11,16 +11,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Deploy using SSH
-        uses: appleboy/ssh-action@master
-        with:
+        uses: actions/checkout@master
+
+      - name: Copiar el contenido del repositorio con scp
+        uses: appleboy/scp-action@master
+        env:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
-          script: |
-            cd noventa-grados
-            git pull
+        with:
+          source: "site/*"
+          target: "/var/www/html"
