@@ -24,8 +24,8 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         port: 3000
         script: |
-          cd ~/home/noventa-grados
+          cd ~/noventa-grados
           git pull origin master
           git status
-          npm install --only=prod
+          npm build
           pm2 restart noventa-app
