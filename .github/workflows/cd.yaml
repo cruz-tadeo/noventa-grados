@@ -15,7 +15,7 @@ jobs:
       - name: Set up SSH agent
         run: |
           eval "$(ssh-agent -s)"
-          ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
+          echo "${{ secrets.PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
 
       - name: Deploy using SSH
         uses: appleboy/ssh-action@master
