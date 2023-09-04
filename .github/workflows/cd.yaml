@@ -16,11 +16,10 @@ jobs:
       - name: Copiar el contenido del repositorio con scp
         uses: appleboy/scp-action@master
         env:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          port: 22
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
         with:
           source: "site/*"
           target: "/var/www/html"
