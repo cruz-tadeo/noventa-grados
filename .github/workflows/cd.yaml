@@ -13,11 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: Authenticate with GitHub via SSH
-        run: ssh -T git@github.com
-        env:
-          GIT_SSH_COMMAND: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-  
+      - name: Set who I am
+        run: |
+          git config --global user.email "jimeneztadeocruz@gmail.com"
+          git config --global user.name "cruz-tadeo"
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
+          
       - name: Deploy using SSH
         uses: appleboy/ssh-action@master
         with:
