@@ -18,6 +18,5 @@ jobs:
           git config --global user.email "jimeneztadeocruz@gmail.com"
           git config --global user.name "cruz-tadeo"
           git config --global url."git@github.com:".insteadOf "https://github.com/"
-          cd noventa-grados
-          git pull origin main
+          ls -la
          
