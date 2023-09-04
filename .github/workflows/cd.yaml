@@ -18,5 +18,5 @@ jobs:
           git config --global user.email "jimeneztadeocruz@gmail.com"
           git config --global user.name "cruz-tadeo"
           git config --global url."git@github.com:".insteadOf "https://github.com/"
-          ls -la
+          git pull 
          
