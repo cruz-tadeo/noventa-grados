@@ -24,8 +24,5 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         port: 22
         script: |
-          cd ~/noventa-grados
-          git pull origin master
-          git status
-          npm build
-          pm2 restart noventa-app
+          whoami
+          ls -al
