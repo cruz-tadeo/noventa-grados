@@ -22,5 +22,5 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
           script: |
-            cd /ruta/a/tu/proyecto
+            cd noventa-grados
             git pull origin main
