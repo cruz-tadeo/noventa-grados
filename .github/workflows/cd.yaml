@@ -26,5 +26,6 @@ jobs:
           cd /var/www/noventa-grados
           git pull origin main
           git status
+          node --version
           npm run build
           pm2 restart noventa-app
