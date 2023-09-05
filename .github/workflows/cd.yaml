@@ -27,5 +27,6 @@ jobs:
           git pull origin main
           git status
           node --version
+          ls -la
           npm run build
           pm2 restart noventa-app
