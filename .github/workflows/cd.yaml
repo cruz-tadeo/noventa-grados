@@ -16,15 +16,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Deploy using ssh
-      uses: appleboy/ssh-action@v1.0.0
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSHKEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          ls -la
-          cd noventa-grados
+          cd /var/www/noventa-grados
           git pull origin main
           git status
