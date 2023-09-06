@@ -6,14 +6,6 @@ import { DatabaseConfig } from './environment-config.entity';
 export class EnvironmentConfigService implements DatabaseConfig {
 	constructor(private configService: ConfigService) {}
 
-	getJwtSecret(): string {
-		return this.configService.get<string>('SECRET_KEY');
-	}
-
-	getJwtExpirationTime(): string {
-		return this.configService.get<string>('TOKEN_EXPIRATION_TIME');
-	}
-
 	getDatabaseHost(): string {
 		return this.configService.get<string>('DATABASE_HOST');
 	}
@@ -28,21 +20,5 @@ export class EnvironmentConfigService implements DatabaseConfig {
 
 	getDatabasePassword(): string {
 		return this.configService.get<string>('DATABASE_PASSWORD');
-	}
-
-	getDatabaseName(): string {
-		return this.configService.get<string>('DATABASE_NAME');
-	}
-
-	geDatabaseType(): string {
-		return this.configService.get<string>('DATABASE_TYPE');
-	}
-
-	getDatabaseNameWeb(): string {
-		return this.configService.get<string>('DATABASE_NAME_WEB');
-	}
-
-	getDatabaseNameExtranet(): string {
-		return this.configService.get<string>('DATABASE_NAME_EXTRANET');
 	}
 }
