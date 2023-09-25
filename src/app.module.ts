@@ -10,6 +10,6 @@ import { ConnectionDatabaseModule } from './database/database.module';
 		ConnectionDatabaseModule,
 		EnvironmentConfigModule
 	],
-	providers: [ChatGateway],
+	providers: [ChatGateway]
 })
 export class AppModule {}

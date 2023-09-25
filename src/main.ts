@@ -6,7 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-		cors: true,
+		cors: true
 	});
 	const configService = app.get<ConfigService>(ConfigService);
 	const globalPrefix = configService.get('APP_GLOBAL_PREFIX');
@@ -18,9 +18,9 @@ async function bootstrap() {
 			whitelist: true,
 			forbidNonWhitelisted: true,
 			transformOptions: {
-				enableImplicitConversion: true,
-			},
-		}),
+				enableImplicitConversion: true
+			}
+		})
 	);
 	await app.listen(port);
 }

@@ -4,6 +4,7 @@ import {Socket, Server} from 'socket.io'
 @WebSocketGateway(3001, {
   cors: '*'
 })
+
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server
@@ -19,7 +20,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @SubscribeMessage('message')
   handleMessage(@MessageBody() data: string, @ConnectedSocket() client: Socket) {
     // Handle received message
-    console.log(data, 'data')
+    //console.log(data, 'data')
     this.server.emit('message', data); // Broadcast the message to all connected clients
   }
 }
